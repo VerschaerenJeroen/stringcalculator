@@ -8,6 +8,9 @@ public class StringCalculator {
     }
 
     public int calculate() {
+        if (numberList.length() == 1) {
+            return Character.getNumericValue(numberList.charAt(0));
+        }
         return 0;
     }
 }
