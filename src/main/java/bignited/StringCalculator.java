@@ -3,7 +3,7 @@ package bignited;
 public class StringCalculator {
 
     private final String numberList;
-    private String seperator = ",";
+    private final String seperator = ",";
     private String numbersWithSeperator;
 
     public StringCalculator(String numberList) {
@@ -27,12 +27,24 @@ public class StringCalculator {
         return result;
     }
 
+    private void throwExceptionIfNegativeTokensExist() {
+        throw new IllegalArgumentException("numberNotAllowed");
+    }
+
     private int addSingleNumber(String number) {
-        return Integer.parseInt(number);
+        Integer valueAsInteger = Integer.parseInt(number);
+        if (isNegative(valueAsInteger)) {
+            throwExceptionIfNegativeTokensExist();
+        }
+        return  valueAsInteger;
     }
 
     private String[] splitInputBySeperator() {
         return numbersWithSeperator.split(seperator);
+    }
+
+    private boolean isNegative(Integer valueAsInteger) {
+        return valueAsInteger < 0;
     }
 
     private boolean isInputEmpty() {

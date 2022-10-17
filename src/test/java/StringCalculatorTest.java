@@ -23,10 +23,20 @@ public class StringCalculatorTest {
         assertEquals(3, calculator.add());
     }
 
-    @Test(expected = Exception.class)
-    public void negativeNumberStringInput() throws Exception {
-        StringCalculator calculator = new StringCalculator("1,-2");
-        calculator.add();
+    @Test
+    public void seperatorStringInput2() {
+        StringCalculator calculator = new StringCalculator("1,2,3,4");
+        assertEquals(10, calculator.add());
+    }
+
+    @Test
+    public void negativeNumberStringInput() {
+        try {
+            StringCalculator calculator = new StringCalculator("1,-2");
+        } catch (IllegalArgumentException exception) {
+            assertEquals("numberNotAllowed", exception.getMessage());
+        }
+
     }
 
     @Test
