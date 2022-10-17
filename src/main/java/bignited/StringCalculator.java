@@ -31,14 +31,14 @@ public class StringCalculator {
         return result;
     }
 
-    private void throwExceptionIfNegativeTokensExist() {
+    private void throwExceptionIfNegativeNumberExist() {
         throw new IllegalArgumentException("numberNotAllowed");
     }
 
     private int addSingleNumber(String number) {
         Integer valueAsInteger = Integer.parseInt(number);
         if (isNegative(valueAsInteger)) {
-            throwExceptionIfNegativeTokensExist();
+            throwExceptionIfNegativeNumberExist();
         } else if (isInValidRange(valueAsInteger)) {
             return valueAsInteger;
         }
