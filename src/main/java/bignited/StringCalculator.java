@@ -35,8 +35,10 @@ public class StringCalculator {
         Integer valueAsInteger = Integer.parseInt(number);
         if (isNegative(valueAsInteger)) {
             throwExceptionIfNegativeTokensExist();
+        } else if (isInValidRange(valueAsInteger)) {
+            return valueAsInteger;
         }
-        return  valueAsInteger;
+        return  0;
     }
 
     private String[] splitInputBySeperator() {
@@ -49,5 +51,9 @@ public class StringCalculator {
 
     private boolean isInputEmpty() {
         return numberList.length() == 0;
+    }
+
+    private boolean isInValidRange(Integer valueAsInteger) {
+        return valueAsInteger < 1000;
     }
 }
