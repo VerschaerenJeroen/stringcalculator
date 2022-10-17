@@ -62,6 +62,6 @@ public class StringCalculator {
     }
 
     private boolean isInValidRange(Integer valueAsInteger) {
-        return valueAsInteger < 1000;
+        return valueAsInteger <= 1000;
     }
 }

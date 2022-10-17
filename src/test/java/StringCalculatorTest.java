@@ -41,7 +41,7 @@ public class StringCalculatorTest {
 
     @Test
     public void numberBiggerThan1000StringInput() {
-        StringCalculator calculator = new StringCalculator("1,1000,2");
+        StringCalculator calculator = new StringCalculator("1,1001,2");
         assertEquals(3, calculator.add());
     }
 
