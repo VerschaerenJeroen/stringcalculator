@@ -3,7 +3,7 @@ package bignited;
 public class StringCalculator {
 
     private final String numberList;
-    private final String seperator = ",";
+    private String seperator = ",";
     private String numbersWithSeperator;
 
     public StringCalculator(String numberList) {
@@ -15,6 +15,10 @@ public class StringCalculator {
             return 0;
         }
         numbersWithSeperator = numberList;
+        if (isCustomSeperator()) {
+            seperator = String.valueOf(numbersWithSeperator.charAt(0));
+            numbersWithSeperator = numbersWithSeperator.substring(1);
+        }
         String[] inputSplittedBySeperator = splitInputBySeperator();
         return calculateSum(inputSplittedBySeperator);
     }
@@ -47,6 +51,10 @@ public class StringCalculator {
 
     private boolean isNegative(Integer valueAsInteger) {
         return valueAsInteger < 0;
+    }
+
+    private boolean isCustomSeperator() {
+        return !Character.isDigit(numberList.charAt(0));
     }
 
     private boolean isInputEmpty() {

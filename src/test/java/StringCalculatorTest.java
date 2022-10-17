@@ -32,7 +32,7 @@ public class StringCalculatorTest {
     @Test
     public void negativeNumberStringInput() {
         try {
-            StringCalculator calculator = new StringCalculator("1,-2");
+            new StringCalculator("1,-2");
         } catch (IllegalArgumentException exception) {
             assertEquals("numberNotAllowed", exception.getMessage());
         }
@@ -43,5 +43,11 @@ public class StringCalculatorTest {
     public void numberBiggerThan1000StringInput() {
         StringCalculator calculator = new StringCalculator("1,1000,2");
         assertEquals(3, calculator.add());
+    }
+
+    @Test
+    public void customSeperatorStringInput() {
+        StringCalculator calculator = new StringCalculator(";1;2;3;4");
+        assertEquals(10, calculator.add());
     }
 }
